@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -33,16 +34,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.textField2.defaultTextAttributes = memeTextAttributes
         self.textField1.textAlignment = .center
         self.textField2.textAlignment = .center
+        self.shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         self.cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        self.shareButton.isEnabled = false
+        print("view will appear!")
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("will will disappear!")
         unsubscribeToKeyboardNotifications()
     }
     
@@ -51,7 +54,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerView.image = image
         }
         // Enable the share button
+        print("It is enabled!!!")
         self.shareButton.isEnabled = true
+        print(self.shareButton.isEnabled)
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -110,12 +115,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage {
         self.toolBar.isHidden = true
         self.shareButton.isHidden = true
+        self.cancelButton.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         self.toolBar.isHidden = false
         self.shareButton.isHidden = false
+        self.cancelButton.isHidden = false
 
         return memedImage
     }
@@ -127,16 +134,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var memedImage: UIImage
     }
     
-    func save() -> Meme {
-        let memedImage = generateMemedImage()
-        let meme = Meme(topText: self.textField1.text!, bottomText: self.textField2.text!, originalImage: self.imagePickerView.image!, memedImage: memedImage)
-        return meme
+    func save() {
+        let _ = Meme(topText: self.textField1.text!,
+                     bottomText: self.textField2.text!,
+                     originalImage: self.imagePickerView.image!,
+                     memedImage: generateMemedImage())
     }
     
     @IBAction func shareMeme(_ sender: Any) {
-        let image = save().memedImage
+        // Generate a memed image
+        let image = generateMemedImage()
+        // Define an instance of tge ActicityViewController
+        // Pass the ActivityViewController a memedImage as an activity item
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        // Present the ActivityViewController
         present(controller, animated: true, completion: nil)
+        
+        controller.completionWithItemsHandler = { (activity, completed, items, error) in
+            if completed {
+                self.save()
+            }
+        }
     }
     
     @IBAction func cancelAction(_ sender: Any) {
