@@ -15,52 +15,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uS-D8-cXE" userLabel="Pick an Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uS-D8-cXE" userLabel="Pick an Image">
                                 <rect key="frame" x="20" y="44" width="374" height="769"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z17-OL-c8z">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="u6o-bJ-eif"/>
-                                </constraints>
                                 <items>
-                                    <barButtonItem title="Camera" image="camera.fill" catalog="system" width="246.5" id="mjr-hT-l1G" userLabel="Camera">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KLj-IX-u7F"/>
+                                    <barButtonItem title="Camera" image="camera.fill" catalog="system" id="mjr-hT-l1G" userLabel="Camera">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="aWJ-6Q-Fnp"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="88" style="plain" systemItem="fixedSpace" id="34Z-nD-xVc"/>
                                     <barButtonItem title="Album" id="xbh-dt-ALB">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="Bzp-pT-Q3v"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5h4-Cx-zZy"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rM-Hd-l93">
-                                <rect key="frame" x="20" y="110" width="374" height="34"/>
+                                <rect key="frame" x="20" y="110" width="374" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="boH-M7-fe2"/>
-                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNv-z3-FRA">
-                                <rect key="frame" x="20" y="713" width="374" height="34"/>
+                                <rect key="frame" x="20" y="703" width="374" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="fW7-h6-431"/>
-                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoE-hc-icP">
-                                <rect key="frame" x="48" y="44" width="55" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="QT8-Wp-cSo"/>
-                                </constraints>
+                                <rect key="frame" x="48" y="44" width="42.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
                                 <connections>
@@ -68,10 +59,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3V-5h-EqX">
-                                <rect key="frame" x="319" y="44" width="55" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Ysh-XO-2Qb"/>
-                                </constraints>
+                                <rect key="frame" x="331" y="44" width="43" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
                                 <connections>
@@ -86,21 +74,20 @@
                             <constraint firstItem="7rM-Hd-l93" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3jG-bq-7aC"/>
                             <constraint firstItem="6uS-D8-cXE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4ay-HO-6Ge"/>
                             <constraint firstItem="G3V-5h-EqX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8rJ-ks-Xyp"/>
-                            <constraint firstItem="6uS-D8-cXE" firstAttribute="top" secondItem="7rM-Hd-l93" secondAttribute="bottom" constant="-100" id="EUt-t4-7G2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RoE-hc-icP" secondAttribute="trailing" constant="311" id="Jwy-Ca-XA4"/>
+                            <constraint firstItem="G3V-5h-EqX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RoE-hc-icP" secondAttribute="trailing" constant="8" symbolic="YES" id="9ha-xA-ih3"/>
+                            <constraint firstItem="z17-OL-c8z" firstAttribute="top" secondItem="6uS-D8-cXE" secondAttribute="bottom" id="Lrm-Eu-LXc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7rM-Hd-l93" secondAttribute="trailing" constant="20" id="MCC-dD-wGQ"/>
                             <constraint firstItem="z17-OL-c8z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NJq-CG-FxP"/>
                             <constraint firstItem="RoE-hc-icP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NhL-LK-ACK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YNv-z3-FRA" secondAttribute="trailing" constant="20" id="Qfq-xL-UHE"/>
                             <constraint firstItem="z17-OL-c8z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UA4-Lh-PIo"/>
                             <constraint firstItem="RoE-hc-icP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="VOj-sc-rLB"/>
-                            <constraint firstItem="G3V-5h-EqX" firstAttribute="leading" secondItem="RoE-hc-icP" secondAttribute="trailing" constant="216" id="aMC-A6-vxo"/>
                             <constraint firstItem="z17-OL-c8z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="euh-mk-qGx"/>
                             <constraint firstItem="YNv-z3-FRA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lZW-k9-pbA"/>
                             <constraint firstItem="z17-OL-c8z" firstAttribute="top" secondItem="YNv-z3-FRA" secondAttribute="bottom" constant="66" id="nsq-BV-y3E"/>
+                            <constraint firstItem="7rM-Hd-l93" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="uBV-Cw-7xs"/>
                             <constraint firstItem="6uS-D8-cXE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vRe-EB-v6D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6uS-D8-cXE" secondAttribute="trailing" constant="20" id="vbA-dD-EXa"/>
-                            <constraint firstItem="YNv-z3-FRA" firstAttribute="top" secondItem="6uS-D8-cXE" secondAttribute="bottom" constant="-100" id="zlx-IB-OGo"/>
                         </constraints>
                     </view>
                     <connections>

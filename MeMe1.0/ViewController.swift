@@ -41,11 +41,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         self.cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        print("view will appear!")
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("will will disappear!")
         unsubscribeToKeyboardNotifications()
     }
     
@@ -54,9 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerView.image = image
         }
         // Enable the share button
-        print("It is enabled!!!")
         self.shareButton.isEnabled = true
-        print(self.shareButton.isEnabled)
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -103,7 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        view.frame.origin.y += getKeyboardHeight(notification)
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
